@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { DogList } from "../components/DogList";
-import { Filter } from "../components/Filter";
+import { DogList } from "../components/DogList/DogList";
+import { Filter } from "../components/Filter/Filter";
+import { Favorites } from "../components/Favorites/Favorites"
 import { getDogsBySearch } from "../services/getDogsBySearch";
 
 export const Home = () => {
@@ -8,24 +9,28 @@ export const Home = () => {
   const [loading, setLoading] = useState(true);
   const [dogImg, setDogImg] = useState(null);
   /*Guardo la data del input de busqueda */
-  const [raza, setRaza] = useState("corgi");
+  const [raza, setRaza] = useState("bulldog");
 
   /*Consumo la API */
   useEffect(() => {
-    getDogsBySearch(raza).then((data) => {
-      setDogImg(data.message);
-      setLoading(false);
-    });
+    getDogsBySearch(raza)
+      .then((data) => {
+        setDogImg(data.message);
+        setLoading(false);
+      })
   }, [raza]);
 
   const setBreed = (breed) => {
     setRaza(breed);
   };
 
+  /*Guardo la data en localStorage*/
+
   return (
     <div>
       <Filter setBreed={setBreed} />
       {loading ? <div>Cargando</div> : <DogList dogImg={dogImg} />}
+      <Favorites />
     </div>
   );
 };
