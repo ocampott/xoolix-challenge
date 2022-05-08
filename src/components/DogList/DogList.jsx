@@ -1,6 +1,6 @@
 import React from "react";
 import { validateFavorites } from "../../utils/validateFavorites";
-import { DogCard } from "../Dogs/DogCard";
+import { DogCard } from "../DogCard/DogCard";
 import "./DogList.css";
 
 export const DogList = ({ dogList, setFavorites }) => {

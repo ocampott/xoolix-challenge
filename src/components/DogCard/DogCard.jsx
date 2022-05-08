@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import "./Dogs.css";
+import "./DogCard.css";
 
 export const DogCard = ({ dog, isFavorite, addFavorite, removeFavorite }) => {
   return (
