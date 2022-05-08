@@ -5,6 +5,7 @@ import { Filter } from "../../components/Filter/Filter";
 import { getDogsBySearch } from "../../services/getDogsBySearch";
 
 export const Home = () => {
+  
   /*Guardo la data del API */
   const [dogList, setDogList] = useState([]);
   const [dogsFavoriteImg, setDogsFavoriteImg] = useState([]);
@@ -15,6 +16,7 @@ export const Home = () => {
     setRaza(breed);
   };
 
+  /* Seteo los favoritos en localStorage*/
   let setFavorites = () => {
     let dogsFavorite = [];
     dogsFavorite = JSON.parse(localStorage.getItem("favorites"));
@@ -34,7 +36,7 @@ export const Home = () => {
     }
   }, [raza]);
 
-  /* Hook para printear favoritos y funcion para setearlos*/
+  /* Hook para printear favoritos*/
   useEffect(() => {
     setFavorites();
   }, []);

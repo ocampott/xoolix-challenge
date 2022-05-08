@@ -4,9 +4,14 @@ import { DogCard } from "../DogCard/DogCard";
 import "./DogList.css";
 
 export const DogList = ({ dogList, setFavorites }) => {
+
+  /* Limito la busqueda a 10 imagenes*/
   const dogImgs = dogList.slice(0, 10);
+  
+  /*Data de los perros en localStorage */
   const oldData = JSON.parse(localStorage.getItem("favorites"));
 
+  /* Agregar perros a favoritos en localStorage*/
   let addFavorite = (dog) => {
     if (localStorage.getItem("favorites") == null) {
       localStorage.setItem("favorites", "[]");
@@ -17,7 +22,7 @@ export const DogList = ({ dogList, setFavorites }) => {
     setFavorites()
   };
 
-  /*Eliminar los favoritos en el localStorage*/
+  /*Eliminar los perros favoritos en el localStorage*/
   let removeFavorite = (dog) => {
     let oldData = [];
     oldData = JSON.parse(localStorage.getItem("favorites"));
