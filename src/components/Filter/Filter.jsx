@@ -8,6 +8,7 @@ export const Filter = (props) => {
   const handleInput = ({ target }) => {
     setText(target.value);
   };
+
   /* Submit en minusculas*/
   const handleSubmit = (e) => {
     e.preventDefault();
