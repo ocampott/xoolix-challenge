@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./Dogs.css";
 
-export const Dogs = ({ dogs, validateFavorites }) => {
+export const Dogs = ({ dogs, validateFavorites, setFavorites }) => {
   /* Estado del like a las imagenes*/
   const [liked, setLiked] = useState(validateFavorites(dogs));
   /*Guardar los favoritos en el localStorage*/
@@ -13,7 +13,6 @@ export const Dogs = ({ dogs, validateFavorites }) => {
     }
     let oldData = JSON.parse(localStorage.getItem("favorites"));
     oldData.push(dogs);
-    console.log(oldData);
     localStorage.setItem("favorites", JSON.stringify(oldData));
   };
   /*Eliminar los favoritos en el localStorage*/

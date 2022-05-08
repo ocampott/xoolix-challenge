@@ -2,7 +2,7 @@ import React from "react";
 import { Dogs } from "../Dogs/Dogs";
 import "./DogList.css";
 
-export const DogList = ({ dogImg }) => {
+export const DogList = ({ dogImg, setFavorites }) => {
   const dogImgs = dogImg.slice(0, 10);
 
   /*Chequear si la imagen ya se encuentra en favoritos*/
@@ -26,7 +26,7 @@ export const DogList = ({ dogImg }) => {
   return (
     <div className="dogList-container">
       {dogImgs.map((dogs) => (
-        <Dogs key={dogs} dogs={dogs} validateFavorites={validateFavorites} />
+        <Dogs key={dogs} dogs={dogs} validateFavorites={validateFavorites} setFavorites={setFavorites}/>
       ))}
     </div>
   );

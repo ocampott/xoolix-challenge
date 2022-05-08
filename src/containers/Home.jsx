@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { DogList } from "../components/DogList/DogList";
 import { Filter } from "../components/Filter/Filter";
-import { Favorites } from "../components/Favorites/Favorites";
 import { getDogsBySearch } from "../services/getDogsBySearch";
 
 export const Home = () => {
@@ -9,8 +8,9 @@ export const Home = () => {
   const [dogImg, setDogImg] = useState(null);
   /*Guardo la data del input de busqueda */
   const [raza, setRaza] = useState("");
-  /* Div de inicio si no se realizo busqueda */
+  /* Div de inicio si no se realizo busqueda y favoritos*/
   const [start, setstart] = useState(true);
+  const [dogsFavoriteImg, setDogsFavoriteImg] = useState([]);
 
   /*Consumo la API */
   useEffect(() => {
@@ -31,16 +31,26 @@ export const Home = () => {
   const setBreed = (breed) => {
     setRaza(breed);
   };
-
+  /* Hook para printear favoritos */
+  useEffect(() => {
+    setFavorites()
+  }, [dogsFavoriteImg])
+  
+  let setFavorites = () => {
+    let dogsFavorite= [];
+    dogsFavorite = JSON.parse(localStorage.getItem("favorites"));
+    setDogsFavoriteImg(dogsFavorite)
+  }
   return (
     <div>
       <Filter setBreed={setBreed} />
       {start ? (
         <div>Escribir una raza de perro en el buscador</div>
       ) : (
-        <DogList dogImg={dogImg} />
+        <DogList dogImg={dogImg} setFavorites={setFavorites}/>
       )}
-      <Favorites />
+      <h1>Favoritos</h1>
+      <DogList dogImg={dogsFavoriteImg} setFavorites={setFavorites}/>
     </div>
   );
 };
