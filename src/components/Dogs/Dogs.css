@@ -1,16 +1,24 @@
 .dogs-img {
-    width: 160px;
-    height: 160px;
-    padding: 15px;
-    border-radius: 20px;
+  width: 160px;
+  height: 160px;
+  padding: 15px;
+  border-radius: 20px;
 }
 
 .dogs-like {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.dogs-like-icon {
-   position: relative;
-   bottom: 25px;
-   right: 45px;
+.dogs-like-icon-red {
+  position: relative;
+  bottom: 25px;
+  right: 45px;
+  color: red;
+}
+
+.dogs-like-icon-white {
+  position: relative;
+  bottom: 25px;
+  right: 45px;
+  color: white;
 }

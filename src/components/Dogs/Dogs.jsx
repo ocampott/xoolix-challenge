@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faHeartCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./Dogs.css";
 
 export const Dogs = ({ dogs, validateFavorites }) => {
@@ -35,16 +34,16 @@ export const Dogs = ({ dogs, validateFavorites }) => {
       <label className="dogs-like">
         {liked ? (
           <FontAwesomeIcon
-            className="dogs-like-icon"
+            className="dogs-like-icon-red"
             onClick={() => {
               setLiked(!liked);
               removeFavorites(dogs);
             }}
-            icon={faHeartCircleCheck}
+            icon={faHeart}
           />
         ) : (
           <FontAwesomeIcon
-            className="dogs-like-icon"
+            className="dogs-like-icon-white"
             onClick={(e) => {
               setLiked(!liked);
               setFavorite(dogs);

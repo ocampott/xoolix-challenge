@@ -3,7 +3,7 @@ import "./Filter.css";
 import lupa from "../../assets/filter-btn-lupa.png";
 
 export const Filter = (props) => {
-  /* Value de la busqueda */
+  /* Tomar el value de la busqueda */
   const [text, setText] = useState("");
   const handleInput = ({ target }) => {
     setText(target.value);
