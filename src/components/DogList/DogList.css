@@ -1,5 +1,5 @@
-.dogList-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
-    width: 100%
+.dogList-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(190px, 1fr));
+  width: 100%;
 }

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import "./Filter.css"
-import lupa from "../../assets/filter-btn-lupa.png"
+import "./Filter.css";
+import lupa from "../../assets/filter-btn-lupa.png";
 
 export const Filter = (props) => {
-  /* Para la busqueda */
+  /* Value de la busqueda */
   const [text, setText] = useState("");
   const handleInput = ({ target }) => {
     setText(target.value);
   };
-
+  /* Submit en minusculas*/
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setBreed(text);
+    props.setBreed(text.toLowerCase());
   };
 
   return (
@@ -25,7 +25,9 @@ export const Filter = (props) => {
           onChange={handleInput}
           className="filter-input"
         />
-        <button className="filter-btn" type="submit"><img className="filter-btn-img" alt="lupa" src={lupa}></img>Buscar</button>
+        <button className="filter-btn" type="submit">
+          <img className="filter-btn-img" alt="lupa" src={lupa}></img>Buscar
+        </button>
       </form>
     </div>
   );
