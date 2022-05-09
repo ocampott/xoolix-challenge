@@ -48,8 +48,9 @@ export const Home = () => {
         <div>
           <p>
             Escriba una raza de perro en el buscador para ver hasta 10 imagenes
-            de la misma
+            de la misma.
           </p>
+          <p>Las razas se pueden encontrar en este <a href="https://dog.ceo/dog-api/documentation/">link</a></p>
         </div>
       ) : (
         <DogList dogList={dogList} setFavorites={setFavorites} />
