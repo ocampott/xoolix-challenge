@@ -9,29 +9,29 @@ export const DogList = ({ dogList, setFavorites }) => {
   const dogImgs = dogList.slice(0, 10);
   
   /*Data de los perros en localStorage */
-  const oldData = JSON.parse(localStorage.getItem("favorites"));
+  const oldData = JSON.parse(localStorage.getItem("favorites")) || [];
 
   /* Agregar perros a favoritos en localStorage*/
   let addFavorite = (dog) => {
     if (localStorage.getItem("favorites") == null) {
       localStorage.setItem("favorites", "[]");
     }
-    let oldData = JSON.parse(localStorage.getItem("favorites"));
-    oldData.push(dog);
-    localStorage.setItem("favorites", JSON.stringify(oldData));
+    let data = JSON.parse(localStorage.getItem("favorites"));
+    data.push(dog);
+    localStorage.setItem("favorites", JSON.stringify(data));
     setFavorites()
   };
 
   /*Eliminar los perros favoritos en el localStorage*/
   let removeFavorite = (dog) => {
-    let oldData = [];
-    oldData = JSON.parse(localStorage.getItem("favorites"));
-    for (var i = 0; i < oldData.length; i++) {
-      if (oldData[i] === dog) {
-        oldData.splice(i, 1);
+    let data = [];
+    data = JSON.parse(localStorage.getItem("favorites"));
+    for (var i = 0; i < data.length; i++) {
+      if (data[i] === dog) {
+        data.splice(i, 1);
       }
     }
-    localStorage.setItem("favorites", JSON.stringify(oldData));
+    localStorage.setItem("favorites", JSON.stringify(data));
     setFavorites()
   };
 
