@@ -19,7 +19,7 @@ export const Home = () => {
   /* Seteo los favoritos en localStorage*/
   let setFavorites = () => {
     let dogsFavorite = [];
-    dogsFavorite = JSON.parse(localStorage.getItem("favorites"));
+    dogsFavorite = JSON.parse(localStorage.getItem("favorites")) || [];
     setDogsFavoriteImg(dogsFavorite);
   };
 
